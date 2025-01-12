@@ -26,4 +26,5 @@ export const useFavoriteStore = defineStore("favorite", {
       this.favorites = this.favorites.filter((item) => item.id !== id);
     },
   },
+  persist: true,
 });

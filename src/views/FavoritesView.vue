@@ -6,19 +6,14 @@
         <a-list-item>
           <a-list-item-meta :title="item.title" />
           <template #actions>
-            <a-input-textarea
+            <a-textarea
               v-model="item.memo"
               @blur="updateMemo(item.id, item.memo)"
               placeholder="메모를 입력하세요"
               rows="2"
+              style="margin-bottom: 10px"
             />
-            <a-button
-              danger
-              @click="removeFavorite(item.id)"
-              style="margin-top: 10px"
-            >
-              삭제
-            </a-button>
+            <a-button danger @click="removeFavorite(item.id)"> 삭제 </a-button>
           </template>
         </a-list-item>
       </template>
@@ -33,6 +28,7 @@ const favoriteStore = useFavoriteStore();
 
 const favorites = favoriteStore.favorites;
 
+console.log(favorites);
 const updateMemo = (id: string, memo: string) => {
   favoriteStore.updateMemo(id, memo);
 };

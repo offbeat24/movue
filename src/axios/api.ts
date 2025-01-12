@@ -13,7 +13,6 @@ export const fetchDailyBoxOffice = async (date: string) => {
       },
     }
   );
-  console.log(response.data.boxOfficeResult.dailyBoxOfficeList);
   return response.data.boxOfficeResult.dailyBoxOfficeList;
 };
 

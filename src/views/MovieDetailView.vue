@@ -1,6 +1,6 @@
 <template>
   <a-card :title="movie.movieNm" bordered>
-    <a-descriptions bordered column="1">
+    <a-descriptions bordered :column="1">
       <a-descriptions-item label="감독">{{
         movie.directors[0]?.peopleNm
       }}</a-descriptions-item>

@@ -28,6 +28,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@types/node", "npm:22.10.5"],\
             ["@typescript-eslint/eslint-plugin", "virtual:3e38578ad3b365c09f64492e567b0db58a1205b14e365c7eb07077953a9fbd8e859e5af56539d9c3e02dcab694d56ddf44bad219d114b490a42db3a3b3c776ab#npm:5.62.0"],\
             ["@typescript-eslint/parser", "virtual:3e38578ad3b365c09f64492e567b0db58a1205b14e365c7eb07077953a9fbd8e859e5af56539d9c3e02dcab694d56ddf44bad219d114b490a42db3a3b3c776ab#npm:5.62.0"],\
             ["@vue/cli", "npm:5.0.8"],\
@@ -12235,6 +12236,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["movue", "workspace:."],\
+            ["@types/node", "npm:22.10.5"],\
             ["@typescript-eslint/eslint-plugin", "virtual:3e38578ad3b365c09f64492e567b0db58a1205b14e365c7eb07077953a9fbd8e859e5af56539d9c3e02dcab694d56ddf44bad219d114b490a42db3a3b3c776ab#npm:5.62.0"],\
             ["@typescript-eslint/parser", "virtual:3e38578ad3b365c09f64492e567b0db58a1205b14e365c7eb07077953a9fbd8e859e5af56539d9c3e02dcab694d56ddf44bad219d114b490a42db3a3b3c776ab#npm:5.62.0"],\
             ["@vue/cli", "npm:5.0.8"],\

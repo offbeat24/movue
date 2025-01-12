@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://www.kobis.or.kr/kobisopenapi/webservice/rest";
-const API_KEY = "6ff38d476bf61f7c2e091f00322fa0ae"; // 여기에 API 키를 입력하세요.
+const API_BASE_URL = process.env.VUE_APP_API_BASE_URL; // 환경 변수에서 가져오기
+const API_KEY = process.env.VUE_APP_API_KEY; // 여기에 API 키를 입력하세요.
 
 export const fetchDailyBoxOffice = async (date: string) => {
   const response = await axios.get(
@@ -13,5 +13,19 @@ export const fetchDailyBoxOffice = async (date: string) => {
       },
     }
   );
+  console.log(response.data.boxOfficeResult.dailyBoxOfficeList);
   return response.data.boxOfficeResult.dailyBoxOfficeList;
+};
+
+export const fetchMovieDetails = async (movieCd: string) => {
+  const response = await axios.get(
+    `${API_BASE_URL}/movie/searchMovieInfo.json`,
+    {
+      params: {
+        key: API_KEY,
+        movieCd,
+      },
+    }
+  );
+  return response.data.movieInfoResult.movieInfo;
 };

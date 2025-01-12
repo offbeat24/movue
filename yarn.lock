@@ -2445,7 +2445,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:^22.10.5":
   version: 22.10.5
   resolution: "@types/node@npm:22.10.5"
   dependencies:
@@ -9153,6 +9153,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "movue@workspace:."
   dependencies:
+    "@types/node": ^22.10.5
     "@typescript-eslint/eslint-plugin": ^5.4.0
     "@typescript-eslint/parser": ^5.4.0
     "@vue/cli": ^5.0.8

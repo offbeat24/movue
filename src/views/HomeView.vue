@@ -11,17 +11,38 @@
       :data-source="movies"
       row-key="movieCd"
       bordered
-    />
+    >
+      <template #movieNm="{ text, record }">
+        <a @click.prevent="navigateToDetail(record.movieCd)">{{ text }}</a>
+      </template>
+    </a-table>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { fetchDailyBoxOffice } from "@/axios/api";
 
 const movies = ref([]);
+const router = useRouter();
 
-// 테이블 컬럼 정의
+const navigateToDetail = (movieCd: string) => {
+  router.push(`/movie/${movieCd}`);
+};
+
+const onDateChange = async (date: string) => {
+  if (!date) return;
+
+  const formattedDate = date.format("YYYYMMDD");
+  const result = await fetchDailyBoxOffice(formattedDate);
+
+  movies.value = result.map((item: never) => ({
+    ...item,
+    key: item.movieCd,
+  }));
+};
+
 const columns = [
   {
     title: "순위",
@@ -32,6 +53,7 @@ const columns = [
     title: "영화명",
     dataIndex: "movieNm",
     key: "movieNm",
+    slots: { customRender: "movieNm" }, // 템플릿 슬롯 이름 지정
   },
   {
     title: "개봉일",
@@ -44,15 +66,4 @@ const columns = [
     key: "audiCnt",
   },
 ];
-
-const onDateChange = async (date: string) => {
-  if (!date) return;
-
-  const formattedDate = date.format("YYYYMMDD");
-  const result = await fetchDailyBoxOffice(formattedDate);
-  movies.value = result.map((item: never) => ({
-    ...item,
-    key: item.movieCd,
-  }));
-};
 </script>

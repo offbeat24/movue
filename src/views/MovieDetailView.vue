@@ -18,12 +18,16 @@
         </span>
       </a-descriptions-item>
     </a-descriptions>
+    <a-button type="primary" @click="addToFavorites" style="margin-top: 20px">
+      Add to Favorites
+    </a-button>
   </a-card>
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import { useFavoriteStore } from "@/stores/favorites";
 import { fetchMovieDetails } from "@/axios/api";
 
 const route = useRoute();
@@ -34,8 +38,16 @@ const movie = ref({
   openDt: "",
   genres: [],
 });
+const favoriteStore = useFavoriteStore();
 
-// 마지막 요소인지 체크 (UI 개선)
+const addToFavorites = () => {
+  favoriteStore.addFavorite({
+    id: route.params.id as string,
+    title: movie.value.movieNm,
+    memo: "",
+  });
+};
+
 const isLastActor = (actor: never) =>
   movie.value.actors.indexOf(actor) === movie.value.actors.length - 1;
 const isLastGenre = (genre: never) =>

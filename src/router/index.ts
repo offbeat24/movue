@@ -1,12 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+// 라우트에 대응하는 페이지 컴포넌트
+import HomeView from "@/views/HomeView.vue";
+import MovieDetailView from "@/views/MovieDetailView.vue";
+import FavoritesView from "@/views/FavoritesView.vue";
+
 const routes = [
-  { path: "/", component: () => import("@/views/HomeView.vue") },
-  {
-    path: "/movie/:id",
-    component: () => import("@/views/MovieDetailView.vue"),
-  },
-  { path: "/favorites", component: () => import("@/views/FavoritesView.vue") },
+  { path: "/", component: HomeView },
+  { path: "/movie/:id", component: MovieDetailView },
+  { path: "/favorites", component: FavoritesView },
 ];
 
 const router = createRouter({

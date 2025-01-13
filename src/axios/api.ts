@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_BASE_URL = process.env.VUE_APP_API_BASE_URL; // 환경 변수에서 가져오기
-const API_KEY = process.env.VUE_APP_API_KEY; // 여기에 API 키를 입력하세요.
+const API_BASE_URL = process.env.VUE_APP_API_BASE_URL;
+const API_KEY = process.env.VUE_APP_API_KEY;
 
 export const fetchDailyBoxOffice = async (date: string) => {
   const response = await axios.get(

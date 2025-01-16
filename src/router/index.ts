@@ -1,13 +1,12 @@
-import { createRouter, createWebHistory } from "vue-router";
-
-import HomeView from "@/views/HomeView.vue";
-import MovieDetailView from "@/views/MovieDetailView.vue";
-import FavoritesView from "@/views/FavoritesView.vue";
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '@/views/HomeView.vue';
+import Search from '@/views/SearchResults.vue';
+import Favorites from '@/views/FavoriteMovies.vue';
 
 const routes = [
-  { path: "/", component: HomeView },
-  { path: "/movie/:id", component: MovieDetailView },
-  { path: "/favorites", component: FavoritesView },
+  { path: '/', component: Home, name: 'home' },
+  { path: '/search', component: Search, name: 'search' },
+  { path: '/favorites', component: Favorites, name: 'favorites' },
 ];
 
 const router = createRouter({
